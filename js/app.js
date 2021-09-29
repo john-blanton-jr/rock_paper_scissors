@@ -1,3 +1,37 @@
+
+const buttons = document.querySelectorAll('#button');
+const playerDisplay = document.getElementById('player-score');
+const tieDisplay = document.getElementById('tie-score');
+const machinesDisplay = document.getElementById('machines-score');
+const leftPlayerDisplay = document.getElementById('left-player');
+const rightPlayerDisplay = document.getElementById('right-player');
+const controls = document.getElementById('controls');
+const youWin = document.getElementById('you-win');
+const youLose = document.getElementById('you-lose');
+
+const youWinDisplay = () => { 
+  controls.style.display = "none";
+  youWin.style.display = "block";
+  document.getElementById('play-again-win').addEventListener('click',() => location.reload());
+
+}
+
+const youLoseDisplay = () => { 
+  controls.style.display = "none";
+  youLose.style.display = "block";
+  document.getElementById('play-again-lose').addEventListener('click',() => location.reload());
+
+}
+
+const getPlayerSelection = (e) => {
+  let playerSelection = (e.target.classList.value);
+  e.stopPropagation();
+  playRound(playerSelection, computerPlay());
+}
+
+buttons.forEach(button => button.addEventListener('click', getPlayerSelection));
+
+
 const computerPlay = () => {
   let randNum = Math.floor(Math.random()*3)
   if (randNum == 0) {
@@ -9,63 +43,84 @@ const computerPlay = () => {
   }  
 }
 
-
-const game = () => {
   
-  const endGame = () => {
-    if (playerScore > computerScore ) {
-      console.log("You beat the machines");
+
+let computerScore = 0
+let playerScore = 0
+let tie = 0
+
+const playRound = (playerSelection, computerSelection) => {
+updateDisplay(playerSelection, computerSelection)  
+if (playerSelection == computerSelection) {
+  tie++
+  leftPlayerDisplay.style.backgroundColor = 'green';
+    rightPlayerDisplay.style.backgroundColor = 'green';
+  } else if (playerSelection == 'rock') {
+    if (computerSelection == "paper") {
+      computerScore++
+      leftPlayerDisplay.style.backgroundColor = 'red';
+      rightPlayerDisplay.style.backgroundColor = 'green';
     } else {
-      console.log("You suck Loser");
+      playerScore++
+      leftPlayerDisplay.style.backgroundColor = 'green';
+      rightPlayerDisplay.style.backgroundColor = 'red';
+    }
+  } else if (playerSelection == 'paper') {
+    if (computerSelection == "scissors") {
+      computerScore++
+      leftPlayerDisplay.style.backgroundColor = 'red';
+      rightPlayerDisplay.style.backgroundColor = 'green';
+    } else {
+      playerScore++
+      leftPlayerDisplay.style.backgroundColor = 'green';
+      rightPlayerDisplay.style.backgroundColor = 'red';
+    }
+  } else if (playerSelection == 'scissors') {
+    if (computerSelection == "rock") {
+      computerScore++
+      leftPlayerDisplay.style.backgroundColor = 'red';
+      rightPlayerDisplay.style.backgroundColor = 'green';
+    } else {
+      playerScore++
+      leftPlayerDisplay.style.backgroundColor = 'green';
+      rightPlayerDisplay.style.backgroundColor = 'red';
     }
   }
+  updateWinner();
+}
   
-  let computerScore = 0
-  let playerScore = 0 
-  let round = 5
   
-  const playRound = (playerSelection, computerSelection) => {
-    let player = playerSelection.toLowerCase();
-    console.log(`The Computer Choose: ${computerSelection}`);
-    round--
-    if (player == computerSelection) {
-      return "It's a tie";
-    } else if (player == 'rock') {
-      if (computerSelection == "paper") {
-        computerScore++
-        return "You Lose this round! Paper beats Rock"
-      } else {
-        playerScore++
-        return "You Win this round! Rock beats Scissors"
-      }
-    } else if (player == 'paper') {
-      if (computerSelection == "scissors") {
-        computerScore++
-        return "You Lose this round! Scissors beats Paper"
-      } else {
-        playerScore++
-        return "You Win this round! Paper Beats Rock"
-      }
-    } else if (player == 'scissors') {
-      if (computerSelection == "rock") {
-        computerScore++
-        return "You Lose this round! rock beats scissors"
-      } else {
-        playerScore++
-        return "You Win this round! Scissors beats Paper"
-      }
-    }
-  }
-  for (let i = 0; i < 5; i++) {
-    const playerSelection = prompt("Please enter Rock, Paper or Scissors")
-    const computerSelection = computerPlay()
-    console.log(playRound(playerSelection, computerSelection))
-    console.log(`Your Score: ${playerScore}`);
-    console.log(`Computers Score: ${computerScore}`);
-    console.log(`Rounds Left: ${round}`);
-  } endGame() 
-
-
+const updateWinner = () => {
+  playerDisplay.innerHTML = playerScore;
+  tieDisplay.innerHTML = tie;
+  machinesDisplay.innerHTML = computerScore;
+  checkEndGame();
 }
 
-game()
+const checkEndGame = () => {
+  if (playerScore == 5) {
+    youWinDisplay();
+
+  } else if (computerScore == 5) {
+    youLoseDisplay();
+
+  }
+}
+
+const updateDisplay = (playerSelection, computerSelection) => {
+  if (playerSelection == 'rock') {
+    leftPlayerDisplay.src = "images/rock.png";
+  } else if (playerSelection == 'paper') {
+    leftPlayerDisplay.src = "images/paper.png";
+  } else if (playerSelection == 'scissors') {
+    leftPlayerDisplay.src = "images/scissors.png";
+  } 
+
+  if (computerSelection == 'rock') {
+    rightPlayerDisplay.src = "images/rock.png";
+  } else if (computerSelection == 'paper') {
+    rightPlayerDisplay.src = "images/paper.png";
+  } else if (computerSelection == 'scissors') {
+    rightPlayerDisplay.src = "images/scissors.png";
+  }
+}

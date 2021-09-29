@@ -4,11 +4,74 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="css/style.css"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@800&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
   <title>Rock Paper Scissors</title>
 </head>
 <body>
-  
+  <div class="container">
+    <Head>
+      <h1>Beat the Machines</h1>
+      <h2>Rock Paper Sissors</h2>
+      <h3>First to 5 wins!</h3>
+    </Head>
+    <div class="score-board">
+      <div id="player">
+        <p>YOU</p>
+        <p id="player-score">0</p>
+      </div>
+      <div id="tie">
+        <p>TIE</p>
+        <p id="tie-score">0</p>
+      </div>
+      <div id="machines">
+        <p>MACHINES</p>
+        <p id="machines-score">0</p>
+      </div>
+    </div>
+    <main id="rps">
+      <div class="rps-box">
+        <img src="images/choose.png" alt=""  id="left-player">
+      </div>
+      <div class="rps-box">
+        <img src="images/computer.png" alt=""  id="right-player">
+      </div>
+    </main>
+    <div id="controls">
+      <div class="controls-title">
+        <p>CHOOSE WISELY</p>
+      </div>
+      <div class="player-buttons">
+        <div id="button">
+          <img src="images/rock.png" alt="" class="rock" >
+        </div>
+        <div id="button">
+          <img src="images/paper.png" alt="" class="paper" >
+        </div>
+        <div id="button">
+          <img src="images/scissors.png" alt="" class="scissors" >
+        </div>
+      </div>  
+    </div>
+    <div id="you-lose">
+      <div class="play-again" id="play-again-lose">
+        <p>Play again??</p>
+      </div>
+      <img src="images/you-lose.png" alt="">
+    </div>
+    <div id="you-win">
+      <div class="play-again" id="play-again-win">
+        <p>Play again??</p>
+      </div>
+      <img src="images/you-win.png" alt="">
+    </div>
+    <footer>
+      <div class="created-by"><a href="https://www.johnblanton.com"><span>Created by: </span>John Blanton Jr.</a></div>
+      <p>Copyright &copy; John Blanton 2021</p>
+    </footer>
+  </div>
 
 
 
