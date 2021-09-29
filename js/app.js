@@ -60,11 +60,11 @@ updateDisplay(playerSelection, computerSelection)
   } else if (playerSelection == 'rock') {
     if (computerSelection == "paper") {
         computerScore++
-        leftPlayerDisplay.style.backgroundColor = 'red';
+        leftBg.style.backgroundColor = 'red';
         rightBg.style.backgroundColor = 'green';
       } else {
         playerScore++
-        leftPlayerDisplay.style.backgroundColor = 'green';
+        leftBg.style.backgroundColor = 'green';
         rightBg.style.backgroundColor = 'red';
       }
   } else if (playerSelection == 'paper') {
