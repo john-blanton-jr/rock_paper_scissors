@@ -34,21 +34,22 @@ h1 {
   
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 590px) {
   h1 {
     font-size: 40px;
     padding-bottom: .5em;
   }
-
-  .score-board{
-    flex-direction: column;
-    align-items: center;
-  }
-
+  
   .score-board div {
+    font-size: .5em;
     text-align: center;
     margin: 1em;
     border-bottom: 1px solid #fff;
+  }
+
+  .controls-title p{
+    font-size: .5em;
+    margin: 0;
   }
 
   #buttons div {
@@ -111,13 +112,13 @@ main {
 .controls-title {
   display: flex;
   justify-content: center;
-  margin: 2em;
+  /* margin: 2em; */
   border-bottom: 2px solid white;
   font-size: 2em;
 }
 
 .controls-title p {
-  padding-bottom: 1em;
+  padding-bottom: ,5em;
   font-weight: 700;
 }
 
