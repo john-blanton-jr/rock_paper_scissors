@@ -34,45 +34,15 @@ h1 {
   
 }
 
-@media only screen and (max-width: 590px) {
-  h1 {
-    font-size: 40px;
-    padding-bottom: .5em;
-  }
-  
-  .score-board div {
-    font-size: .5em;
-    text-align: center;
-    margin: 1em;
-    border-bottom: 1px solid #fff;
-  }
-
-  .controls-title p{
-    font-size: .5em;
-    margin: 0;
-  }
-
-  #buttons div {
-    width: 60px;
-    height: 60px;
-   }
-}
-
-@media only screen and (max-width: 875px) {
-  .container {
-    margin: 1em;
-  }
-}
 
 h2, h3 {
   text-align: center;
-  padding-bottom: .5em;
 }
 
 .score-board {
   display: flex;
   justify-content: center;
-  margin-top: 1.5em;
+  margin-top: .5em;
   justify-content: space-evenly;
   font-size: 2em;
   font-weight: 700;
@@ -102,7 +72,7 @@ main {
   border-radius: 10px;
   width: 25%;
   height: 25%;
-
+  
 }
 
 #controls {
@@ -112,7 +82,6 @@ main {
 .controls-title {
   display: flex;
   justify-content: center;
-  /* margin: 2em; */
   border-bottom: 2px solid white;
   font-size: 2em;
 }
@@ -163,4 +132,33 @@ footer {
 
 .created-by span {
   color: #fff;
+}
+
+@media only screen and (max-width: 590px) {
+  h1 {
+    font-size: 40px;
+  }
+  
+  .score-board div {
+    font-size: .5em;
+    text-align: center;
+    margin: 1em;
+    border-bottom: 1px solid #fff;
+  }
+
+  .controls-title p{
+    font-size: .5em;
+    margin: 0;
+  }
+
+  #buttons div {
+    width: 60px;
+    height: 60px;
+   }
+}
+
+@media only screen and (max-width: 875px) {
+  .container {
+    margin: 1em;
+  }
 }

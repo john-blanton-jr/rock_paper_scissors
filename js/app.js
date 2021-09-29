@@ -8,6 +8,10 @@ const rightPlayerDisplay = document.getElementById('right-player');
 const controls = document.getElementById('controls');
 const youWin = document.getElementById('you-win');
 const youLose = document.getElementById('you-lose');
+const leftBg = document.getElementById('rps-box-left');
+const rightBg = document.getElementById('rps-box-right');
+
+
 
 const youWinDisplay = () => { 
   controls.style.display = "none";
@@ -43,47 +47,45 @@ const computerPlay = () => {
   }  
 }
 
-  
-
 let computerScore = 0
 let playerScore = 0
 let tie = 0
 
 const playRound = (playerSelection, computerSelection) => {
 updateDisplay(playerSelection, computerSelection)  
-if (playerSelection == computerSelection) {
-  tie++
-  leftPlayerDisplay.style.backgroundColor = 'green';
-    rightPlayerDisplay.style.backgroundColor = 'green';
+  if (playerSelection == computerSelection) {
+    tie++
+    leftBg.style.backgroundColor = 'green';
+    rightBg.style.backgroundColor = 'green';
   } else if (playerSelection == 'rock') {
     if (computerSelection == "paper") {
-      computerScore++
-      leftPlayerDisplay.style.backgroundColor = 'red';
-      rightPlayerDisplay.style.backgroundColor = 'green';
-    } else {
-      playerScore++
-      leftPlayerDisplay.style.backgroundColor = 'green';
-      rightPlayerDisplay.style.backgroundColor = 'red';
-    }
+        computerScore++
+        leftPlayerDisplay.style.backgroundColor = 'red';
+        rightBg.style.backgroundColor = 'green';
+      } else {
+        playerScore++
+        leftPlayerDisplay.style.backgroundColor = 'green';
+        rightBg.style.backgroundColor = 'red';
+      }
   } else if (playerSelection == 'paper') {
     if (computerSelection == "scissors") {
       computerScore++
-      leftPlayerDisplay.style.backgroundColor = 'red';
-      rightPlayerDisplay.style.backgroundColor = 'green';
+      leftBg.style.backgroundColor = 'red';
+      rightBg.style.backgroundColor = 'green';
     } else {
       playerScore++
-      leftPlayerDisplay.style.backgroundColor = 'green';
-      rightPlayerDisplay.style.backgroundColor = 'red';
+      leftBg.style.backgroundColor = 'green';
+      rightBg.style.backgroundColor = 'red';
     }
   } else if (playerSelection == 'scissors') {
     if (computerSelection == "rock") {
       computerScore++
-      leftPlayerDisplay.style.backgroundColor = 'red';
-      rightPlayerDisplay.style.backgroundColor = 'green';
+      leftBg.style.backgroundColor = 'red';
+      rightBg.style.backgroundColor = 'green';
     } else {
       playerScore++
-      leftPlayerDisplay.style.backgroundColor = 'green';
-      rightPlayerDisplay.style.backgroundColor = 'red';
+      leftBg.style.backgroundColor = 'green';
+      rightBg.style.backgroundColor = 'red';
     }
   }
   updateWinner();
@@ -103,7 +105,6 @@ const checkEndGame = () => {
 
   } else if (computerScore == 5) {
     youLoseDisplay();
-
   }
 }
 
